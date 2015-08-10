@@ -2582,6 +2582,9 @@ ifeq ($(TARGET_BUILD_TYPE),debug)
   name := $(name)_debug
 endif
 name := $(name)-ota-$(shell date +"%d%m%y")
+ifdef BUILD_NO
+  name := $(name)r$(BUILD_NO)
+endif
 
 INTERNAL_OTA_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name).zip
 
