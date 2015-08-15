@@ -2403,8 +2403,10 @@ ifeq ($(TARGET_BUILD_TYPE),debug)
   name := $(name)_debug
 endif
 name := $(name)-ota-$(shell date +"%d%m%y")
-ifdef BUILD_NO
-  name := $(name)r$(BUILD_NO)
+#Automatic build number revisioning: the command searches for the number of zips with the same name and increments the r$(build_no) of the name accordingly
+build_no := $(shell echo $$(( $(shell find $(PRODUCT_OUT) -maxdepth 1 -type f -name "$(name)*.zip" | wc -l) + 1 )))
+ifneq ($(build_no),1)
+  name := $(name)r$(build_no)
 endif
 
 INTERNAL_OTA_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name).zip
