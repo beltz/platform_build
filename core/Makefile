@@ -2581,7 +2581,7 @@ name := $(TARGET_PRODUCT)
 ifeq ($(TARGET_BUILD_TYPE),debug)
   name := $(name)_debug
 endif
-name := $(name)-ota-$(shell date +"%d%m%y")
+name := beltz_8.1.0-$(shell date +"%d%m%y")-$(TARGET_DEVICE)
 #Automatic build number revisioning: the command searches for the number of zips with the same name and increments the r$(build_no) of the name accordingly
 build_no := $(shell echo $$(( $(shell find $(PRODUCT_OUT) -maxdepth 1 -type f -name "$(name)*.zip" | wc -l) + 1 )))
 ifneq ($(build_no),1)
