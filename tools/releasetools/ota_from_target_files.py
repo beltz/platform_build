@@ -476,6 +476,18 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   if "selinux_fc" in OPTIONS.info_dict:
     WritePolicyConfig(OPTIONS.info_dict["selinux_fc"], output_zip)
 
+    build = GetBuildProp("ro.build.id", OPTIONS.info_dict)
+    date = GetBuildProp("ro.build.date", OPTIONS.info_dict)
+    model = GetBuildProp("ro.product.model", OPTIONS.info_dict)
+    version = GetBuildProp("ro.build.version.release", OPTIONS.info_dict)
+
+    script.Print("***********************************************");
+    script.Print("                Beltz %s"%(version));
+    script.Print("     Device: %s"%(model));
+    script.Print("     Number: %s"%(build));
+    script.Print("     Compiled: %s"%(date));
+    script.Print("***********************************************");
+
   recovery_mount_options = OPTIONS.info_dict.get("recovery_mount_options")
 
   script.ShowProgress(system_progress, 0)
