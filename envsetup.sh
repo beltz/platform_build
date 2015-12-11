@@ -609,6 +609,7 @@ function lunch()
 
     export TARGET_PRODUCT=$product
     export TARGET_DEVICE=$device
+    export TARGET_ARCH=$(gettargetarch)
     export TARGET_BUILD_VARIANT=$variant
     export TARGET_BUILD_TYPE=release
 
