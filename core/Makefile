@@ -2408,6 +2408,10 @@ build_no := $(shell echo $$(( $(shell find $(PRODUCT_OUT) -maxdepth 1 -type f -n
 ifneq ($(build_no),1)
   name := $(name)r$(build_no)
 endif
+#Special naming, export the variable: BUILD_TAG
+ifneq ($(BUILD_TAG),)
+  name := $(name)-$(BUILD_TAG)
+endif
 
 INTERNAL_OTA_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name).zip
 
