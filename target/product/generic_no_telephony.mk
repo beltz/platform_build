@@ -20,7 +20,6 @@
 PRODUCT_PACKAGES := \
     Bluetooth \
     BluetoothMidiService \
-    Gallery2 \
     MusicFX \
     NfcNci \
     OneTimeInitializer \
